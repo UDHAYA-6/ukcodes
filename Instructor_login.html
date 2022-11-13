@@ -1,0 +1,50 @@
+{% include 'nav.html' %}
+<html>
+<head>
+    <title></title>
+     {% load static %}
+     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <style>
+        h3{text-decoration:underline; text-underline-offset:6px; font-weight:bold; color:DarkBlue;
+         font-family: monospace;}
+          form{font-family:times; }
+         .col-md-2{float:center; border:1px solid gray; margin-top:13%; box-shadow:7px 7px 7px gray;
+         border-radius:5px; background-color: aliceblue;}
+         .help{color:black;}
+         .help a:hover{color:green; }
+         a:hover{ text-decoration:none;}
+         .new_user {font-weight:bold;}
+         .help{font-weight:bold;}
+         h1{color:blue; font-weight:bold; font-size:60; margin-left:4%;}
+         h4{font-weight:bold; margin-left:10%; margin-top:-2%;}
+         body{background-image:url('https://images.hdqwalls.com/wallpapers/scifi-hud-4k-c0.jpg');
+          }
+    </style>
+</head>
+<body>
+<form autocomplete="off" method="POST" action="{% url 'welcome_earn' %}">
+    {% csrf_token %}
+<div  class="col-md-offset-5 col-md-2">
+    <h3><center>Instructor-login</center></h3>
+    <div class="form-group ">
+        <label>Email</label>
+        <input type="email" placeholder="Enter Your registered email id" name="email2" required class="form-control">
+    </div>
+     <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="Enter your password" name="pass2" required class="form-control">
+    </div>
+    <div>
+        <a class="new_user" href="{% url 'Cond' %}">New User?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a  class="help" href="#"> Help </a>
+    </div>
+    <div class="btn pull-center">
+        <input type="submit"  class="btn btn-success" value="Login">
+        <input type="reset" class="btn btn-danger" value="Clear">
+        <center style="color:red;font-family:times; font-size:13px;"><p color="red">{{msg}}</p></center>
+    </div>
+
+</div>
+</form>
+</body>
+</html>
+<br>

@@ -1,0 +1,67 @@
+{% include 'navhome.html' %}
+<html>
+<head>
+
+    <title>Verification</title>
+    <style>
+        .bio{width:250px; height:justify;}
+        *{font-family:times; }
+        .main{display:flex; font-weight:bold; box-shadow: 7px 7px 7px  gray; border-style:inset; margin:5%; width:1000px;}
+        .image{margin:3%;  box-shadow:5px 5px 5px gray;}
+        .anchor{font-size:15px; margin-top:5%; font-weight:bold; }
+        .anchor a:hover{text-decoration:none; font-weight:bold;}
+        .button{ margin:7%; font-weight:bold;}
+        .button .btn{ font-weight:bold; box-shadow: 4px 4px 4px  gray;}
+        h1{margin-top:6%; font-weight:bold; color:Chocolate;}
+        h4,h5{font-weight:bold;}
+        .btn-group{margin-left:4%;}
+    </style>
+</head>
+<body>
+<center><h1>welcome to Shop skill staff site</h1></center>
+<div style="text-align:left;">
+    <div class="btn-group" role="group" aria-label="...">
+        <a href="#"><input type="submit" class="btn btn-warning" value="New Instructor"></a>
+        <a href="{% url 'paired' %}"><input type="submit" class="btn btn-warning" value="Paired Id's"></a>
+</div>
+</div>
+    {% if datas %}
+{% for i in datas %}
+<div  class="main">
+<div class="image">
+    {{forloop.counter}}
+    <img src="{{i.Profile.url}}" width="100px" height="150">
+
+</div>
+<div class="field">
+    <h4>Name: <font  color="DarkOrange">{{i.Name}}</font></h4>
+    <h5>From: {{i.Country}}</h5>
+    <h5>Gender: {{i.Gender}}</h5>
+    <h5>Contact: {{i.Contact}}</h5>
+    <h5>Qualification:{{i.Qualification}}</h5>
+    <h5>Language willing to take: {{i.Language}}</h5>
+    <h5 class="bio">About: {{i.Bio}} <br>{{i.pk}}</h5>
+</div>
+<div class="anchor">
+    <a href="{{i.Profile.url}}"><font>View profile</font></a><br>
+    <a href="{{i.Graduate}}"><font>View Graduation</font></a><br>
+    <a href="{{i.Experience}}"><font>View Experience</font></a><br>
+</div>
+<div class="button">
+    <label>Status:{{i.Status}}</label>
+    <form method="POST" action="{% url 'approve' %}">
+        {% csrf_token %}
+        <input type="hidden" value="{{i.pk}}" name="pk">
+    <input type="submit" value="Approve"  class="btn btn-success">
+    </form>
+    <form method="POST" action="{% url 'reject' %}">
+        {% csrf_token %}
+        <input type="hidden" value="{{i.pk}}" name="pk">
+     <input type="submit" value="Reject"  class="btn btn-danger">
+    </form>
+</div>
+</div>
+{% endfor %}
+{% endif %}
+</body>
+</html>

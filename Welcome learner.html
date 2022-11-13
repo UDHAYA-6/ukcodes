@@ -1,0 +1,53 @@
+{% include 'nav.html' %}
+<html>
+<head>
+    {% load static %}
+     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>Welcome</title>
+    <style>
+       h3,h2{color:orange;}
+       .imagec p{font-family:arial; font-size:60px; font-weight:bold; font-style:italic; color:Green; margin-top:6%;}
+       .a1 p{ font-family:times; color:purple; font-size:30px; }
+       .a2 p{font-family:times; color: Brown; font-size:30px; font-weight:bold; margin-left:3%;}
+       .a1 i{ font-family:times; font-size:28px; font-weight:bold;}
+       .a1{margin-top:5%;}
+       .join i{font-family:times; font-size:25px; font-weight:bold;}
+       .join{text-align:center; margin-top:-3%;}
+       .join input{font-size:20px;}
+       .download{margin-top:10%; margin-left:10%;}
+       .download a{font-size:20px; color:blue;}
+       .download a:hover{text-decoration:none;}
+        h3{margin-left:8%;}
+    </style>
+</head>
+<body>
+{% if data %}
+{% if data1 %}
+{% for j in data1 %}
+{% for i in data %}
+<h2 style="color:teal; margin:2%;">Welcome {{i.Name}}</h2>
+<h3>Course you enrolled:</h3>
+<div style="box-shadow:5px 5px 5px gray; width:1100px; border:inset; border-color:black; margin:5%;">
+    <div class="imagec" style="display:flex;"><img  style="margin:2%; box-shadow:3px 3px 3px gray; border:inset;" src="{{j.Image.url}}" width="100" height="165" style="margin:3%;">
+     <div class="a1"><p>Course start <br>date:</p><i>{{Start}}</i></div>&nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;
+        &nbsp;  &nbsp; &nbsp; &nbsp;
+      <div class="a1"><p>Course end<br> date:</p><i>{{End}}</i></div> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;
+        <div class="a1"><p>To<br> complete:</p><i>{{Days}} days left</i></div> &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;
+        <div class="download"><a href="{{j.Material.url}}">Download<i class="glyphicon glyphicon-download"></i></a></div>
+    </div>
+    <div class="a2"><p>{{j.Course_Name}}</p></div>
+    <div class="a2"><p>{{weeks}} week course</p></div>
+    <div class="join">
+          <i>Your course is waiting for you join now</i>&nbsp;
+          <a href="https://meet.google.com/">
+              <input  class="btn btn-primary" type="submit" value="Join now">
+          </a>
+    </div>
+</div>
+{% endfor %}
+{% endfor %}
+{% endif %}
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,42 @@
+{%include 'nav.html' %}
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <title>select staff</title>
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'css/earning.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <style>
+            .main{margin:5%; box-shadow:5px 5px 5px gray; border:inset; width:900px;}
+            *{font-family:times;}
+        </style>
+    </head>
+<body>
+<div style="margin-left:3%; color:green;"><h2>Select the staff you want</h2></div>
+{% if data %}
+{% for i in data %}
+<center><h1>{{email}}</h1></center>
+<div class="main" style="col-md-4">
+    <div style="display:flex; margin:2%;">
+    <div>
+        <img  style="border:inset; box-shadow:5px 5px  5px gray;" src="{{i.Profile.url}}" width="100" height="150">
+    </div>
+    <div style="margin-left:2%;">
+        <h4 >Name: {{i.Name}}</h4>
+        <h4>{{i.Gender}}</h4>
+        <h4>From: {{i.Country}}</h4>
+        <h4>Qualificatio: {{i.Qualification}}</h4>
+        <h5 style="width:600px; height:justify;">About: {{i.Bio}}</h5>
+    </div>
+    <div  class="btn">
+        <form autocomplete="off" method="POST" action="{% url 'done1' %}">
+              {% csrf_token %}
+        <input type="hidden" value="{{i.pk}}" name="pok"><br>
+        <input type="submit" name="select-status" value="Select" class="btn btn-success">
+        </form>
+    </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+</body>
+</html>

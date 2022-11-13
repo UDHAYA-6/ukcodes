@@ -1,0 +1,26 @@
+<html>
+<head>
+    {% load static %}
+    {% csrf_token %}
+    <link rel="stylesheet" href="{% static 'css/earning.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <style type="text/css" media="screen">
+        *{font-family:times; top:0; margin:0; padding:0; left:0; right:0;}
+        .nav span a{color:white; font-size:17px;}
+        .nav span a:hover{text-decoration:none; color:white;}
+        .nav{width:100%; height:75px; background-color:CadetBlue; margin:0; padding:0; top:0; left:0; right:0; position:fixed;}
+
+    </style>
+</head>
+<body>
+<div class="nav">
+    <font face="times" color="white" size="10" style="margin-left:7%;">
+        <strong>Shop Skill</strong>
+    </font>
+    <span style="padding-right:2%; padding-left:35%;"><a href="{% url 'home' %}"><i class="glyphicon glyphicon-home "></i><font size="4">Home</font></a></span>
+   <span style="padding-right:2%;"> <a href="{% url 'learn' %}"><i class="glyphicon glyphicon-user"></i><font  size="4">Learner</font></a></span>
+   <span style="padding-right:2%;"> <a href="{% url 'instructor' %}"><i class="glyphicon glyphicon-user"></i><font  size="4">Instructor</font></a></span>
+   <span style="padding-right:2%;"><a href="#"><i class="glyphicon glyphicon-bell"><font size="4">Notifications</font></i></a></span>
+   <span style="padding-right:2%;"><a href="{% url 'staff' %}"><i class="glyphicon glyphicon-lock"></i><font>Staff</font></a></span>
+</div>
+</body>
