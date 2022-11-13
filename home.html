@@ -1,0 +1,68 @@
+{% include 'nav.html' %}
+<html>
+<head>
+    <title>shop skill</title>
+    {% load static %}
+     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+     
+</head>
+<body>
+<div style="border-bottom:2px red;">
+<div class="heading">
+   <p>
+       <strong>India's most trusted <br> education platform</strong><br>
+       <i>certified online courses from world-class universities</i><br>
+       <b>Start to explore things</b>
+   </p>
+   <div class="box">
+    <div class="box1">
+        <p>Start gaining skill<br>today by register<br>Explore Now<br>
+            <a href="{% url 'Course' %}"><font size="5">Start Learning&rarr;</font></a></p>
+    </div>
+    <div class="box2">
+         <p>Make your<br>knowledge into money<br>Explore Now<br>
+             <a href="{% url 'Cond' %}"><font size="5" >Start Earning&rarr;</font></a></p>
+    </div>
+</div>
+</div>
+<div class="left">
+    <div class="btn-group-vertical">
+        <button type="button" class="btn"><a href="#">About ShopSkill</a></button>
+        <button type="button" class="btn"><a href="#">About Earning</a></button>
+        <button type="button" class="btn"><a href="#">Payments</a></button>
+        <button type="button" class="btn"><a href="#">Study Materials</a></button>
+        <button type="button" class="btn"><a href="#">Courses offered</a></button>
+        <button type="button" class="btn"><a href="#">Certifications</a></button>
+        <button type="button" class="btn"><a href="#">Achievements</a></button>
+        <button type="button" class="btn"><a href="#">Rankings</a></button>
+        <button type="button" class="btn"><a href="#">Feedback</a></button>
+        <button type="button" class="btn"><a href="#">Events</a></button>
+        <button type="button" class="btn"><a href="#">Google meet</a></button>
+        <button type="button" class="btn"><a href="#">Completed Course</a></button>
+        <button type="button" class="btn"><a href="#">Badges</a></button>
+    </div>
+<div style=" margin-top:2%;">
+    <img src="{% static 'image/r1.jpg' %}" height="500" width="500" style="padding:5%; margin-left:5%; border-radius:50px;">
+</div>
+</div><br><br><br><br><br><br><br><br>
+</div>
+<!--bottom of the page-->
+<div style="position:relative; margin-top:28%; bottom:0; width:100%; height:300px; background-color:white;">
+    <center><h3>Approved by</h3></center>
+      <div class="logo1">
+        <div><img src="{% static 'image/india.jpeg' %}" height="200px"></p></div>
+         <div><img src="{% static 'image/iit roorkee.jpeg' %}" height="132px"><p style="padding-left:10px;">IIT Roorkee</p></div>
+         <div><img src="{% static 'image/nptel.jpeg' %}" height="125px"><p style="padding-left:23px;">NPTEL</p></div>
+    </div>
+    <div class="logo2">
+         <div><img src="{% static 'image/aicte.jpg' %}" height="133px"><p style="padding-left:31px;">AICTE</p></div>
+         <div><img src="{% static 'image/iit bombay.png' %}" height="116px"><p style="padding-left:10px;">IIT Bombay</p></div>
+         <div><img src="{% static 'image/texaus.png' %}" height="123px"><p style="padding-left:20px;">TEXAUS</p></div>
+    </div>
+
+</div>
+</body>
+</html>
+
+

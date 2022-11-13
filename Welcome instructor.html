@@ -1,0 +1,52 @@
+{% include 'nav.html' %}
+<html>
+<head>
+    {% load static %}
+     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>Welcome</title>
+    <style>
+        table{margin:4%;}
+        td,th{padding:15px;}
+        th{color:blueviolet;}
+        th,td{font-size:20px;}
+    </style>
+</head>
+<body>
+{% if Name and learn and course %}
+{% for i in Name %}
+{% for j in learn %}
+{% for k in course %}
+<center><h1>Welcome {{i.Name}}</h1></center>   
+<table border="1px">
+    <tr>
+        <th>S.NO</th>
+        <th>Learner Name</th>
+        <th>Course</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Duration</th>
+        <th>Material</th>
+        <th>Meet</th>
+    </tr>
+    <tr>
+         <td>{{ forloop.counter }}</td>
+         <td>{{j.Name}}</td>
+         <td>{{j.Course}}</td>
+         <td>{{j.Start}}</td>
+         <td>{{End}}</td>
+         <td>{{k.Duration}} weeks</td>
+         <td><a href="{{k.Material.url}}">Download<i class="glyphicon glyphicon-download"></i></a></td>
+         <td>
+            <a href="https://meet.google.com/">
+              <input  class="btn btn-success" type="submit" value="Join now">
+            </a>
+        </td>
+    </tr>
+</table>
+{% endfor %}
+{% endfor %}
+{% endfor %}
+{% endif %}
+</body>
+</html>

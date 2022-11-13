@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% include 'navhome.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start now!</title>
+    <style>
+     .div{font-family:times; text-align:center; margin-top:15%; border-solor:black; border-style:inset;
+        box-shadow:7px 7px 7px gray; width:400px; content-align:center; margin-left:570px; background-color:LightGreen;}
+    </style>
+</head>
+<body>
+<div class="div">
+    <h1><font>All set...</font></h1><br>
+    <form method="post">
+        {% csrf_token %}
+    <font><input value="Login now.."  type="submit" formaction="{% url 'welcome_learn' %}" class="btn btn-primary">
+    </font>
+    </form>
+</div>
+</body>
+</html>
+

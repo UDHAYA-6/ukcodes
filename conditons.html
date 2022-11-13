@@ -1,0 +1,49 @@
+{% include 'navhome.html' %}
+<html>
+<head>
+    <title>terms and conditions</title>
+    {% load static %}
+    {% csrf_token %}
+    <link rel="stylesheet" href="{% static 'css/earning.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <style type="text/css" media="screen">
+        h1{ color:CadetBlue;   font-weight:bold; text-align:center; margin-top:7%;}
+        li{font-size:22;}
+        body{font-family:times; background-color:LightYellow;}
+        .list{margin-left:17%; box-shadow:5px 5px 5px gray; width:950px;   border-style:inset;}
+        .check{ color:blue; font-size:15; margin-top:2%;}
+        a{color:white; font-size:17px;}
+        a:hover{text-decoration:none; color:white;}
+        button{margin-top:2%;}
+        
+
+
+    </style>
+</head>
+<body>
+<h1>Terms and conditions</h1>
+    <div class="list">
+        <ul type="square">
+        <li>The details provided by the instructor must be true.</li>
+        <li>Instructor must provide a valid certifications and address proofs.</li>
+        <li>If any fradulent in the certification will be rejected.</li>
+        <li>Only after verifying the certification details you will be allowed to start Earn.</li>
+        <li>The instructor can select their comfortable language while registering</li>
+        <li>The instructor must take the class in the language of what he/she given in the registration form</li>
+        <li>The instructor have to present to the meet punctuall.</li>
+         <li>The instructor should not ask for the learner contact's detail or any other personal  information</li>
+        <li>The instructor should not use outside study materials rather than shop skill's material</li>
+        <li>If any case he instructor is failed to take more then 4 classes will be replaced by new instructor
+        and the old instructor won't get earning amount</li>
+        <li>The amount will be credited only if the instrutor complete the entire portion</li>
+        <li>Only 65% percentage of the course amount will be provided to the instructor</li>
+        <li>The amount will be provided only after fully teaching the course</li>
+        <li>The entire amount will be fined if any misbehave or any unnecessary activities during class</li>
+        </ul>
+         <center class="check"><input type="checkbox" checked>&nbsp;I agree to the conditions.<br></center>
+
+    </div>
+ <center><button class="btn btn-danger"><a href="{% url 'home' %}">&larr;Back</a></button>&nbsp;<button class="btn btn-success">
+           <a href="{% url 'earn' %}">Continue&rarr;</a></button></center>
+</body>
+</html>

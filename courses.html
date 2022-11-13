@@ -1,0 +1,48 @@
+{% include 'navhome.html' %}
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Course</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        .course_box{width:75%; margin-top:6%; margin-left:7%; margin-right:5%; height:230px;
+        border-style:inset; box-shadow:5px 5px 5px gray; border-radius:30px; position:relative; display:flex; background-color:LightBlue;}
+        .Photo{ width:180; position:relative; height:210; margin-top:6px; margin-left:1%;
+        margin-right:1%; margin-bottom:1px;}
+        .heading{width:justify; height:justify; position:relative; margin-left:3%;
+        margin-top:-1%; margin-bottom:1%;}
+        .description{position:relative; height:50px; width:750px;}
+        .button{margin-left:110%;}
+        .btn{padding-left:15px; padding-right:15px;}
+
+
+    </style>
+</head>
+<body>
+<br>
+<form action="{% url 'Enroll' %}" method="GET">
+    {% csrf_token %}
+{% if courses %}
+{% for i in courses %}
+    <input type="hidden" value="{{i.Course_Name}}" name="pass">
+<div class="course_box">
+    <div class="Photo">
+        <img src="{{i.Image.url}}" width="175" height="210">
+    </div>
+    <div class="heading">
+        <h2 class="course_name"><font face="times" color="green">Course Name:&nbsp;<i><strong>{{i.Course_Name}}</strong></i></font></h2>
+        <span style="display:flex; margin-top:-2%;"><h3><font face="times" color="green">Durations:&nbsp;<strong>{{i.Duration}}</strong></font></h3>
+            <h6 style="padding-left:50%;"><input  class=" btn btn-primary" type="submit" value="{{i.Price}} INR"></h6></span>
+        <h4 style="margin-top:-1%;"><font face="times"><strong>Course description:</strong></font></h4>
+        <div class="description">
+            <p style="font-family:times; text-align:justify;"><font size="3">{{i.Description}}</font></p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+
+</form>
+</body>
+</html>

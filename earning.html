@@ -1,0 +1,96 @@
+{% include 'nav.html' %}
+<html>
+<head>
+    <title>Instructor Register</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        .div-left{width:50%;  float:left; height:justify; margin-top:5%;  background-color:LightBlue;}
+        .div-right{width:50%; float:right; height:justify; margin-top:5%;  background-color:Lightblue;}
+        label{padding-top:6%;}
+        body{background-color:LightBlue;}
+        .btn{margin-top:1%;}
+        .form-control{box-shadow:3px 3px 3px gray;}
+           .button a:hover{text-decoration:none;}
+
+
+
+    </style>
+</head>
+<body>
+<center style="color:red;font-family:times; font-size:30px;"><p color="red">{{msg}}</p></center>
+<form method="POST" enctype="multipart/form-data" action="{% url 'done' %}" autocomplete="on">
+{% csrf_token %}
+<div class="div-left form-group">
+    <div class="col-md-offset-4 col-md-7">
+        <label>user name</label>
+        <input type="text" required class="form-control" placeholder="Enter Your Name.." name="form1">
+        <label required >Gender</label>
+        <input type="radio"  name="form2" value="male">&nbsp;Male &nbsp; &nbsp;
+        <input type="radio" name="form2" value="female">&nbsp;Female &nbsp; &nbsp;
+        <input type="radio"  name="form2" value="other">&nbsp;Others<br>
+        <label>Email</label>
+        <input type="email" required class="form-control" placeholder="Enter a valid Email" name="form3">
+        <label>Country</label>
+        <select  class="form-control" name="form4" required>
+            <option value="none"  >select country</option>
+            <option value="Africa" >Africa</option>
+            <option value="America" >America</option>
+            <option value="Britan">Britan</option>
+            <option value="India">India</option>
+            <option value="Indonsia" >Indonesia</option>
+        </select>
+        <label >Contact</label>
+        <input type="number"  class="form-control"  placeholder="enter a valid Number" required name="form5">
+         <label>Course</label>
+            <select  class="form-control" name="form6" required>
+                <option value="none"  >select course</option>
+                <option value="Html" >Html</option>
+                <option value="Css" >CSS</option>
+                <option value="Java" >Java</option>
+                <option value="Python">Python</option>
+                <option value="Machine learning" >Machine learning</option>
+            </select>
+    </div>
+</div>
+<div class="div-right form-group">
+    <div class="col-md-offset-1 col-md-7">
+        <label>Highest Qualification</label>
+            <select  class="form-control" name="form7" required>
+                <option value="none"  >select Qualification</option>
+                <option value="B.E" >B.E</option>
+                <option value="M.E" >M.E</option>
+                <option value="B.Tech" >B.Tech</option>
+                <option value="M.Tech">M.Tech</option>
+                <option value="B.Sc(com)">B.Sc(com)</option>
+            </select>
+        <label>language ready to teach</label>
+            <select class="form-control" name="form8" required>
+                <option value="none" >Select Language</option>
+                <option value="Arabic" >Arabic</option>
+                <option value="Tamil" >Tamil</option>
+                <option value="Malayalam">Malayalam</option>
+                <option value="Kannada" >kannadam</option>
+                <option value="Marathi" >Marathi</option>
+            </select>
+        <label>Profile Picture</label>
+        <input type="file"  name="form11" class="form-control">    
+        <label>Graduation Certificate</label>
+        <input type="file" name="form9" class="form-control">
+        <label>Experience Certificate</label>
+        <input type="file" name="form10" class="form-control">
+        <label>Tell about yourself:</label>
+        <textarea class="form-control" name="form12" placeholder="Typing something about you in 200 words"></textarea>
+    </div>
+</div>
+<div class="button">
+     <a href="{% url 'instructor' %}" style="margin-left:20%; ">Already have an account?</a>
+    <center>
+    <input type="reset" value="Reset" class="btn btn-danger">
+    <input type="submit" value="Register" class="btn btn-success">
+</center>
+</div>
+</form>
+</body>
+</html>

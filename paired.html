@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% include 'nav.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>paired</title>
+    <script>
+        function myFunction() {
+  // Get the text field
+  var copyText = document.getElementById("myInput");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+
+  // Alert the copied text
+  alert("Copied the text: " + copyText.value);
+}
+    </script>
+    <style>
+        th,td{padding:15px;}
+        th,td{font-size:25px;}
+    </style>
+</head>
+<body>
+{% if datas %}
+{% for i in datas %}
+<center>
+<table border="1px" style="margin-top:4%;">
+    <tr>
+        <th>S.No</th>
+        <th>Learner email id</th>
+        <th>Instructor email id</th>
+        <th>Copy</th>
+    </tr>
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{i.Email}}</td>
+        <td>{{i.Staff}}</td>
+        <td>
+            <input type="hidden" value="{{i.Email}},{{i.Staff}}" id="myInput">
+            <button onclick="myFunction()" class="btn btn-success">Copy text</button>
+        </td>
+    </tr>
+</table>
+</center>
+{% endfor %}
+{% endif %}
+</body>
+</html>

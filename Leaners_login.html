@@ -1,0 +1,51 @@
+{% include 'nav.html' %}
+<html>
+<head>
+    <title></title>
+     {% load static %}
+     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <style>
+         body{font-family:times; }
+        h3{text-decoration:underline; text-underline-offset:6px; font-weight:bold; color:DarkBlue;
+         font-family: monospace;}
+         .col-md-3{float:center;  border-top:50px; border-bottom:50px; border-left:10px;
+          border-right:10px; margin-top:5%; border-style:solid; border-color:LightGreen; box-shadow:7px 7px 7px gray;
+         border-radius:5px; }
+         .help{color:black;}
+         .help a:hover{color:green; }
+         a:hover{ text-decoration:none;}
+         .new_user {font-weight:bold;}
+         .help{font-weight:bold;}
+         h1{color:orange; font-weight:bold; font-size:60; margin-left:4%;}
+         h4{font-weight:bold; margin-left:10%; margin-top:-2%;}
+
+
+
+    </style>
+</head>
+<body>
+<h1>Welcome to learning world</h1><br><h4>Start learn now,</h4>
+<form autocomplete="off" method="POST" action="{% url 'welcome_learn' %}">
+    {% csrf_token %}
+<div  class="col-md-offset-4 col-md-3">
+    <h3><center>Learner login</center></h3>
+    <div class="form-group ">
+        <label>Email</label>
+        <input type="email" placeholder="Enter Your registered email id" required class="form-control" name="email1">
+    </div>
+     <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="Enter your password" required class="form-control" name="pass1">
+    </div>
+    <div>
+        <a class="new_user" href="{% url 'Course' %}">New User?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a  class="help" href="#"> Help </a>
+    </div>
+    <div class="btn pull-center">
+        <input type="submit"  class="btn btn-success" value="Login">
+        <input type="reset" class="btn btn-danger" value="Clear">
+        <center style="color:red;font-family:times; font-size:16px;"><p color="red">{{msg}}</p></center>
+    </div>
+</div>
+</form>
+</body>
+</html>
